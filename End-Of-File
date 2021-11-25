@@ -1,0 +1,52 @@
+Task is to read from standard input untill end of file string is received
+Print each line with line number
+Difficulties faced
+1) How to know whether next input is present or not
+This can be resolved by using scannerobject.hasNext()
+It returns true if next input is present else it will return false
+
+import java.util.*;
+public class EndOfFile
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> al = new ArrayList<String>();
+        boolean flag = true;
+        int count = 0;
+        while(flag)
+        {
+
+            String s1 = sc.nextLine();
+            count++;
+            al.add(String.valueOf(count));
+            String[] a1 = s1.split(" ");
+            al.addAll(Arrays.asList(a1));
+            al.add("/n");
+            for(int i = 0; i < a1.length;i++)
+            {
+                if(a1[i].equals("end-of-file."))
+                {
+                    flag = false;
+                }
+            }
+            if(sc.hasNext()==false)
+            {
+                flag = false;
+            }
+
+        }
+        //System.out.println(al);
+        for(String x:al)
+        {
+            if(x.equals("/n"))
+            {
+                System.out.println();
+            }
+            else
+            {
+                System.out.print(x+" ");
+            }
+        }
+    }
+}
