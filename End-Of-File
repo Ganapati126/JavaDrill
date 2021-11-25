@@ -36,7 +36,6 @@ public class EndOfFile
             }
 
         }
-        //System.out.println(al);
         for(String x:al)
         {
             if(x.equals("/n"))
